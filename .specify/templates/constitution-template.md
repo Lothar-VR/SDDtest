@@ -1,50 +1,73 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# [プロジェクト名] 憲法
 
-## Core Principles
+<!-- 例：Spec 憲法、TaskFlow 憲法など -->
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## コア原則
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### [原則 1 名]
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+<!-- 例：I. ライブラリファースト -->
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+[原則 1 説明]
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+<!-- 例：すべての機能は独立したライブラリとして開始; ライブラリは独立している必要があります。独立してテスト可能、文書化; 明確な目的が必要 - 組織専用ライブラリはなし -->
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### [原則 2 名]
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+<!-- 例：II. CLI インターフェース -->
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+[原則 2 説明]
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+<!-- 例：すべてのライブラリは CLI 経由で機能を公開; テキスト入出力プロトコル：stdin/args → stdout、エラー → stderr; JSON と人間が読める形式をサポート -->
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+### [原則 3 名]
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+<!-- 例：III. テストファースト(交渉不可) -->
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+[原則 3 説明]
+
+<!-- 例：TDD は必須：テスト記述 → ユーザー承認 → テスト失敗 → 実装; Red-Green-Refactor サイクルは厳密に実施 -->
+
+### [原則 4 名]
+
+<!-- 例：IV. 統合テスト -->
+
+[原則 4 説明]
+
+<!-- 例：統合テストが必要な焦点領域：新しいライブラリコントラクトテスト、コントラクト変更、サービス間通信、共有スキーマ -->
+
+### [原則 5 名]
+
+<!-- 例：V. 可観測性、VI. バージョニング & 破壊的変更、VII. シンプリシティ -->
+
+[原則 5 説明]
+
+<!-- 例：テキスト I/O はデバッグ可能性を保証; 構造化ログが必須; または MAJOR.MINOR.BUILD 形式; または シンプルに開始、YAGNI 原則 -->
+
+## [セクション 2 名]
+
+<!-- 例：追加制約、セキュリティ要件、パフォーマンス標準など -->
+
+[セクション 2 内容]
+
+<!-- 例：テクノロジースタック要件、コンプライアンス標準、デプロイメント方針など -->
+
+## [セクション 3 名]
+
+<!-- 例：開発ワークフロー、レビュープロセス、品質ゲートなど -->
+
+[セクション 3 内容]
+
+<!-- 例：コードレビュー要件、テストゲート、デプロイメント承認プロセスなど -->
+
+## ガバナンス
+
+<!-- 例：憲法はすべての他の実践に優先; 修正には文書化、承認、移行計画が必要 -->
+
+[ガバナンスルール]
+
+<!-- 例：すべての PR/レビューはコンプライアンスを確認する必要があります; 複雑さは正当化する必要があります; ランタイム開発ガイダンスには [GUIDANCE_FILE] を使用 -->
+
+**バージョン**: [憲法バージョン] | **批准日**: [批准日] | **最終修正日**: [最終修正日]
+
+<!-- 例：バージョン：2.1.1 | 批准日：2025-06-13 | 最終修正日：2025-07-16 -->

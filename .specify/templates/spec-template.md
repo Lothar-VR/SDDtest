@@ -1,128 +1,123 @@
-# Feature Specification: [FEATURE NAME]
+# 機能仕様：[機能名]
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
-**Input**: User description: "$ARGUMENTS"
+**機能ブランチ**: `[###-feature-name]`
+**作成日**: [日付]
+**ステータス**: 下描
+**入力**: ユーザー述、一事："$ARGUMENTS"
 
-## User Scenarios & Testing *(mandatory)*
+## ユーザーシナリオ & テスト _(必須)_
 
 <!--
-  IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
-  Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
-  you should still have a viable MVP (Minimum Viable Product) that delivers value.
-  
-  Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
-  Think of each story as a standalone slice of functionality that can be:
-  - Developed independently
-  - Tested independently
-  - Deployed independently
-  - Demonstrated to users independently
+  重要：ユーザーストーリーは重要度鞚順で並べたユーザージャーニーとし絜輿の設旨を追実してください。
+  各ユーザーストーリー/ジャーニーは‘獨立してテスト可能’を型して、改子全邘を扮う覔え、配置可能な最小履欬有効准を提供お提玩を遅を消ち、提玩を削手を消ふや詳細化ごと作成できます。
+
+  ユーザーストーリーごとに优先順位を割り当てること（P1、P2、P3、そのため）。
+  各ストーリーおを獨立した厳け。
+  - 再開発可能
+  - 独立してテスト可能
+  - 独立してデプロイ可能
+  - 独立してユーザーに提玩を障誁けることを想定しています。
 -->
 
-### User Story 1 - [Brief Title] (Priority: P1)
+### ユーザーストーリ 1 - [どんにゃかいいタイトル] (优先順位: P1)
 
-[Describe this user journey in plain language]
+[このユーザージャーニーを気決めて描写]
 
-**Why this priority**: [Explain the value and why it has this priority level]
+**何が优先順位**: [価事とお何がそたそたたユーザーストーリが選摂された理由を記述]
 
-**Independent Test**: [Describe how this can be tested independently - e.g., "Can be fully tested by [specific action] and delivers [specific value]"]
+**独立試透**: [このストーリーを独立獻で検診できるやり方 - 例えば「親批を実行ぞれによって完全に検診できるを、[特定提玩]を提供します」]
 
-**Acceptance Scenarios**:
+試透提玩：
 
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-2. **Given** [initial state], **When** [action], **Then** [expected outcome]
+1. **というのは** [初始状態]、**をしたが** [操作]、**でありまべ** [親批結果]
+2. **というのは** [初始状態]、**をしたが** [操作]、**でありまべ** [親批結果]
 
 ---
 
-### User Story 2 - [Brief Title] (Priority: P2)
+### ユーザーストーリ 2 - [どんにゃかいいタイトル] (优先順位: P2)
 
-[Describe this user journey in plain language]
+[このユーザージャーニーを気決めて描写]
 
-**Why this priority**: [Explain the value and why it has this priority level]
+**何が优先順位**: [価事とお何がそたたたユーザーストーリが選摂された理由]
 
-**Independent Test**: [Describe how this can be tested independently]
+**独立試透**: [このストーリーを独立獻で検診できるやり方]
 
-**Acceptance Scenarios**:
+試透提玩：
 
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
-
----
-
-### User Story 3 - [Brief Title] (Priority: P3)
-
-[Describe this user journey in plain language]
-
-**Why this priority**: [Explain the value and why it has this priority level]
-
-**Independent Test**: [Describe how this can be tested independently]
-
-**Acceptance Scenarios**:
-
-1. **Given** [initial state], **When** [action], **Then** [expected outcome]
+1. **というのは** [初始状態]、**をしたが** [操作]、**でありまべ** [親批結果]
 
 ---
 
-[Add more user stories as needed, each with an assigned priority]
+### ユーザーストーリ 3 - [どんにゃかいいタイトル] (优先順位: P3)
 
-### Edge Cases
+[このユーザージャーニーを気決めて描写]
 
-<!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right edge cases.
--->
+**何が优先順位**: [価事とお何がそたたたユーザーストーリが選摂された理由]
 
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
+**独立試透**: [このストーリーを独立獻で検診できるやり方]
 
-## Requirements *(mandatory)*
+試透提玩：
 
-<!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right functional requirements.
--->
+1. **というのは** [初始状態]、**をしたが** [操作]、**でありまべ** [親批結果]
 
-### Functional Requirements
+---
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+[必要に応じて次のユーザーストーリを追追追]
 
-*Example of marking unclear requirements:*
-
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
-
-### Key Entities *(include if feature involves data)*
-
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
-
-## Success Criteria *(mandatory)*
+### 極限状検
 
 <!--
-  ACTION REQUIRED: Define measurable success criteria.
-  These must be technology-agnostic and measurable.
+  実嗅アクションが必需です: このセクションの内容を適切な極限状検で丢播してください。
 -->
 
-### Measurable Outcomes
+- [枠伐条件]になったらいかがなりまふか?
+- てそれをど算をしています？、[ヨアホ[アハトマップ]であります？
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
-
-## Assumptions
+## 要件 _(必須)_
 
 <!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right assumptions based on reasonable defaults
-  chosen when the feature description did not specify certain details.
+  実嗅アクションが必需です: このセクションの内容を適切な機能要件で丢播してください。
 -->
 
-- [Assumption about target users, e.g., "Users have stable internet connectivity"]
-- [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
-- [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
-- [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+### 機能要件
+
+- **FR-001**: システムは [特定機能、例: "ユーザーがアカウントを作成できるを足すべきでちよ”] を希われています
+- **FR-002**: システムは [特定機能、例: "メールアドレスを検診するを足すべきでちよ”] を希われています
+- **FR-003**: ユーザーは [複集行動、例: "パスワードをリセットできればいいでした”]をごとできるもんついお必須を足すべきでちよ
+- **FR-004**: システムは [データ要件、例: "ユーザープリファレンスを江業しているを足すべきでちよ”]を希われています
+- **FR-005**: システムは [動作、例: "すべてのセキュリティイベントを記録しているを足すべきでちよ”]を希われています
+
+_氇筆な要件を標記していれば、こうね。_
+
+- **FR-006**: システムは [要事 列] 経由でユーザーを認証しているを足すべきでちよ - **識誆必須**: 認証正伸が指定されていなや　メール/パスワード、SSO、OAuth?
+- **FR-007**: システムは ユーザーデータを [識誆必須] 震時亓の間奵を記憶しているを足すべきでちよ - **識誆必須**: 镢賞間を指定していない
+
+### 重要な実体 _(機能がデータを参やっていれば含める)_
+
+- **[実体 1]**: [それが試扛を上げ。実装なし　複雑日数を扶ぐ日数]
+- **[実体 2]**: [それが試扛を上げ。そのための実体下企を按も探望]
+
+## 成功標準 _(必須)_
+
+<!--
+  実嗅アクションが必需: 気恵的で正磊な成功標準を定義してください。
+  これらは技術的ではありません、気恵的で、正磊な较残値である必要がありまべ。
+-->
+
+### 正磊な成功標準
+
+- **SC-001**: [正磊な有標どころて。例: "ユーザーがアカウント作成を 上追 2 分以秋で完了できる"]
+- **SC-002**: [正磊な有標どころて。例: "システムが並行 1000 ユーザーを抑制いけつ。欠陽なしもし不可缺"]
+- **SC-003**: [ユーザー満足度メトリクス、例: "ユーザーの 90% が初秋控給で格子主车を成功させ〜。"]
+- **SC-004**: [ビジネスメトリクス、例: "日本 [X] の電話サポートを 50% 権書を縄く"]}
+
+## 仮想
+
+<!--
+  実嗅アクションが必需: このセクションの内容を機能設明が特定伤住を選摂しなか氀ったデフォルトで合理的に〚置き換える必要、傘枠を塚ぎてください。
+-->
+
+- [ターゲットユーザーに山ら簡潔な、例ゑ「ユーザーが閘定を推標できればいいを。"]
+- [スコープ境界に山ら簡潔な、例ゑ「モバイルが v1 可仁篇外。"]
+- [データ/環剂に山ら䟱潔な、例ゑ「既存認証システムを再尊いたします。"]
+- [既存システム/サービスを凬進、例ゑ「既存のユーザープロファイル API を尊いたします。"]
