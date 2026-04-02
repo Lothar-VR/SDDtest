@@ -6,100 +6,78 @@
 
 ---
 
-## Session 記録一覧
+## 記録ディレクトリ構成
 
-### Session 1: 憲法初期化・日本語化
+記録は日付ごとのフォルダで整理されています。
 
-**日時**: 2026-04-02  
-**記録ファイル**: [2026-04-02_constitution-init.md](./2026-04-02_constitution-init.md)
-
-#### 実施内容
-
-- プロジェクト憲法（constitution.md）の日本語化
-- FastAPI + SQLite に適合させた 5 つのコア原則の定義
-- ガバナンスルール、開発ワークフローの確立
-- `./record` ディレクトリ体制の構築
-
-#### 更新ファイル
-
-| ファイル                          | 変更内容                     |
-| --------------------------------- | ---------------------------- |
-| `.specify/memory/constitution.md` | 日本語化・プロジェクト固有化 |
-| `record/`                         | ディレクトリ作成             |
-
-#### 次フェーズ
-
-- テンプレート同期確認
-- `docs/development.md` 作成
-- 第一次フィーチャー計画
+```
+record/
+├── 2026-04-02/
+│   ├── constitution-init.md
+│   ├── employee-crud-api-spec.md
+│   ├── prompt-simplification.md
+│   ├── record-automation.md
+│   ├── spec-requirements-recreation.md
+│   ├── template-correction.md
+│   └── INDEX.md           ← 本日の全セッション一覧
+└── INDEX.md               ← このファイル（全記録インデックス）
+```
 
 ---
 
-### Session 2: 社員情報CRUD API 仕様作成
+## 日付ごとの記録一覧
 
-**日時**: 2026-04-02 (第 2 Session)  
-**記録ファイル**: [2026-04-02_employee-crud-api-spec.md](./2026-04-02_employee-crud-api-spec.md)
+### 📅 2026-04-02 (本日)
 
-#### 実施内容
+**詳細はこちら**: [2026-04-02/INDEX.md](./2026-04-02/INDEX.md)
 
-- 新機能ブランチ `001-employee-crud-api` 作成
-- 社員情報管理 API の機能仕様を完全定義
-- 4 つのユーザーストーリ（P1, P2, P3 優先度付け）を設計
-- 品質チェックリスト作成（全項目合格）
+**実施セッション**:
 
-#### 更新ファイル
+| #   | セッション                   | 主要成果                                         |
+| --- | ---------------------------- | ------------------------------------------------ |
+| 1   | 憲法初期化・日本語化         | プロジェクト憲法の確立、FastAPI/SQLite 対応      |
+| 2   | 社員情報CRUD API 仕様作成    | 機能仕様・4 ユーザーストーリ・品質チェックリスト |
+| 3   | Session レコード記録ルール化 | 自動記録ワークフロー確立                         |
+| 4   | Agent Prompt 簡潔化          | DRY 原則適用、Constitution ベース統一            |
+| 5   | テンプレート修正             | 日本語文字化け修正                               |
+| 6   | 修正テンプレート適用         | spec.md・requirements.md 再構成                  |
 
-| ファイル                                                 | 変更内容 |
-| -------------------------------------------------------- | -------- |
-| `specs/001-employee-crud-api/spec.md`                    | 新規作成 |
-| `specs/001-employee-crud-api/checklists/requirements.md` | 新規作成 |
-
-#### 主要ユーザーストーリ
-
-| US # | タイトル           | 優先度 | エンドポイント                      |
-| ---- | ------------------ | ------ | ----------------------------------- |
-| US1  | 社員情報新規登録   | P1     | POST /employees                     |
-| US2  | 社員一覧・個別取得 | P1     | GET /employees, GET /employees/{id} |
-| US3  | 社員情報更新       | P2     | PUT, PATCH /employees/{id}          |
-| US4  | 社員情報削除       | P3     | DELETE /employees/{id}              |
-
-#### 次フェーズ
-
-- `/speckit.plan` コマンドで計画フェーズ進行
-- 技術設計ドキュメント生成（research.md, data-model.md など）
-- タスク分割とチーム割当
+**アクセス**: [2026-04-02/ フォルダへ移動](./2026-04-02/)
 
 ---
 
-### Session 3: Session レコード記録ルール化・自動化
+## 全体スコープ
 
-**日時**: 2026-04-02 (第 3 Session - 本セッション)  
-**記録ファイル**: [2026-04-02_record-automation.md](./2026-04-02_record-automation.md)
+- **プロジェクト**: SSDtest
+- **主機能**: 社員情報管理 CRUD API
+- **技術要件**: Python / FastAPI / SQLite / Alembic
+- **開発体制**: 複数メンバー並列開発想定
 
-#### 実施内容
+---
 
-- Constitution.md の「Session レコード記録ルール」が指示されていることを確認
-- Session 2（社員情報API仕様作成）のセッションレコード作成
-- speckit.specify, speckit.plan, speckit.tasks, speckit.implement の prompt ファイルを修正
-- Session レコード自動作成の指示を各モードに組み込み
-- INDEX.md をアップデート
+## 利用ガイド
 
-#### 更新ファイル
+### 特定の日付の記録を探す場合
 
-| ファイル                                      | 変更内容                    |
-| --------------------------------------------- | --------------------------- |
-| `record/2026-04-02_employee-crud-api-spec.md` | 新規作成（Session 2 記録）  |
-| `.github/prompts/speckit.specify.prompt.md`   | Session レコード指示追加    |
-| `.github/prompts/speckit.plan.prompt.md`      | Session レコード指示追加    |
-| `.github/prompts/speckit.tasks.prompt.md`     | Session レコード指示追加    |
-| `.github/prompts/speckit.implement.prompt.md` | Session レコード指示追加    |
-| `record/INDEX.md`                             | Session 2・3 エントリー追加 |
+1. 日付フォルダ（例: `2026-04-02/`）に移動
+2. フォルダ内の `INDEX.md` を開く
+3. 該当セッションのレコードをクリック
 
-#### 主要修正
+### 全セッション履歴を確認する場合
 
-1. **指示の統合化**: 各 speckit モード終了時に、Session レコード作成を自動的に催促
-2. **テンプレート参照化**: `.specify/templates/record-template.md` を標準テンプレートとして指定
-3. **ファイル命名規則**: `./record/YYYY-MM-DD_<topic>-<mode>.md` パターンを統一
+このファイル（`INDEX.md`）で確認可能です。
+
+### 新しいセッションを記録する場合
+
+**手順**:
+
+1. `record/YYYY-MM-DD/` フォルダを作成（存在なければ）
+2. セッションレコードファイルを作成
+3. `record/YYYY-MM-DD/INDEX.md` に追記
+4. ルート `INDEX.md` に日付エントリを追記（初回のみ）
+
+5. **テンプレート参照化**: `.specify/templates/record-template.md` を標準テンプレートとして指定
+6. **ファイル命名規則**: `./record/YYYY-MM-DD_<topic>-<mode>.md` パターンを統一
 
 #### 次フェーズ
 
