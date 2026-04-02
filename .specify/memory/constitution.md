@@ -1,50 +1,111 @@
 # [PROJECT_NAME] Constitution
+
 <!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
-## Core Principles
+## コア原則
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. API-ファースト設計
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+すべての機能は RESTful API として実装されます。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- エンドポイントは明確で一貫性のある命名規則に従う
+- リクエスト/レスポンスは JSON 形式で統一
+- API 仕様は OpenAPI/Swagger で文書化
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. テスト駆動開発（必須）
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+開発プロセスは TDD サイクルで実施します。
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- テスト作成 → 承認 → テスト失敗 → 実装 の順序で実行
+- ユニットテスト、統合テスト、E2E テストすべてを実施
+- テストカバレッジは 80% 以上を維持
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. データベース設計の一貫性
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+SQLite スキーマ管理は厳格に行います。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- スキーマ変更は migration スクリプトで管理（手動 SQL は禁止）
+- リレーション整合性を必ず保証（外部キー制約）
+- インデックスは性能測定後に追加
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+### IV. ログと可観測性
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+構造化ログで全ての重要処理を記録します。
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+- ログレベルは DEBUG, INFO, WARNING, ERROR, CRITICAL を使い分け
+- タイムスタンプ、トレース ID、ユーザー情報を含める
+- エラーはスタックトレースと共に記録
+
+### V. セキュリティ・入力検証
+
+危険入力からの保護を必須とします。
+
+- すべてのリクエストボディは Pydantic モデルで検証
+- SQL インジェクション対策として SQL パラメータ化を強制
+- 認証・認可は JWT または API キーで実装
+
+## 技術スタック要件
+
+- **言語**: Python 3.10 以上
+- **フレームワーク**: FastAPI
+- **データストア**: SQLite（production ではデータベースマイグレーション対応）
+- **テスト**: pytest，pytest-cov
+- **API ドキュメント**: Swagger/OpenAPI
+
+## 開発ワークフロー
+
+1. **設計フェーズ**: API 仕様を OpenAPI で先行定義
+2. **テスト作成**: 仕様に基づきテストケースを作成
+3. **実装**: テストが失敗するまで実装開始
+4. **検証**: 全テスト合格と code review を経て main へマージ
+5. **リリース**: semantic versioning に従う
+
+## ガバナンス
+
+- 本憲法はすべての開発方針を統括する
+- 改定には全チームメンバーの同意（または合意形成会議）が必要
+- 例外は「例外追跡 issue」として GitHub に記録
+- すべての PR は本憲法への準拠を必須チェック項目とする
+- 詳細な開発ガイダンスは `docs/development.md` を参照
+
+### Session レコード記録ルール
+
+すべての開発・プロジェクト作業は Session ごとに記録される必要があります。
+
+#### 記録の範囲
+
+- ユーザーから受けた指示内容（原文のまま）
+- 各指示に対応した実施内容
+- 変更ファイル一覧
+- 変更の背景と理由
+- 次ステップ
+
+#### 記録のタイミング
+
+- **必須**: 1 つの Session（会話単位）が完了した時点で記録
+- **ファイルの作成**: 当該 Session 完了時に `./record/YYYY-MM-DD_<topic>.md` として作成
+- **記録の追加**: 後続 Session では新規ファイルを作成（統合管理は `./record/INDEX.md` で実施）
+
+#### テンプレートの参照
+
+- 記録作成時は `.specify/templates/record-template.md` を参照
+- テンプレート構造を保ちながら、内容をプロジェクト要件に合わせて調整
+
+#### 記録内容の要件
+
+- **ユーザー指示**: 一言一句変更なく原文を記録
+- **複数指示対応**: 1 つの Session で複数指示がある場合、「指示 N 対応」で区分
+- **各指示ごと**: 実施内容 → 変更ファイル → 変更の背景と理由 を繰り返し記述
+- **完全性**: 指示の見落としがないことを確認
+
+#### ファイル保存先
+
+```
+./record/
+├── INDEX.md                      （全 Session の統合管理）
+├── YYYY-MM-DD_<topic>.md        （各 Session の記録）
+├── YYYY-MM-DD_<topic>.md
+└── ...
+```
+
+**バージョン**: 1.0.0 | **制定日**: 2026-04-02 | **最終改定**: 2026-04-02
