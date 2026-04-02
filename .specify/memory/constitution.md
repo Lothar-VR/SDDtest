@@ -1,6 +1,6 @@
-# SSDtest プロジェクト憲法
+# [PROJECT_NAME] Constitution
 
-<!-- FastAPI + SQLite ベースのプロジェクト憲法 -->
+<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
 ## コア原則
 
