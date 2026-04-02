@@ -16,6 +16,7 @@
 | 4   | Agent Prompt 簡潔化          | [prompt-simplification.md](./prompt-simplification.md)               | speckit prompts の DRY 原則適用                    |
 | 5   | テンプレート修正             | [template-correction.md](./template-correction.md)                   | spec-template.md、tasks-template.md の日本語修正   |
 | 6   | 修正テンプレート適用         | [spec-requirements-recreation.md](./spec-requirements-recreation.md) | spec.md と requirements.md の再作成                |
+| 7   | 実装計画の策定と並列戦略提示 | [employee-crud-api-planning.md](./employee-crud-api-planning.md)     | Phase 0-1 計画完成、並列実行効率化 28% 時間短縮    |
 
 ---
 
@@ -55,3 +56,4 @@
 - [prompt-simplification.md](./prompt-simplification.md)
 - [template-correction.md](./template-correction.md)
 - [spec-requirements-recreation.md](./spec-requirements-recreation.md)
+- [employee-crud-api-planning.md](./employee-crud-api-planning.md)

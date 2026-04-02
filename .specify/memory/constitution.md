@@ -83,8 +83,8 @@ SQLite スキーマ管理は厳格に行います。
 #### 記録のタイミング
 
 - **必須**: 1 つの Session（会話単位）が完了した時点で記録
-- **ファイルの作成**: 当該 Session 完了時に `./record/YYYY-MM-DD_<topic>.md` として作成
-- **記録の追加**: 後続 Session では新規ファイルを作成（統合管理は `./record/INDEX.md` で実施）
+- **ファイルの作成**: 当該 Session 完了時に `./record/YYYY-MM-DD/<topic>.md` として作成（日付フォルダ内に格納）
+- **記録の追加**: 後続 Session では同日付フォルダ内に新規ファイルを作成（統合管理は `./record/YYYY-MM-DD/INDEX.md` と `./record/INDEX.md` で実施）
 
 #### テンプレートの参照
 
