@@ -1,50 +1,71 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# SSDtest プロジェクト憲法
 
-## Core Principles
+<!-- FastAPI + SQLite ベースのプロジェクト憲法 -->
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+## コア原則
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### I. API-ファースト設計
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+すべての機能は RESTful API として実装されます。
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+- エンドポイントは明確で一貫性のある命名規則に従う
+- リクエスト/レスポンスは JSON 形式で統一
+- API 仕様は OpenAPI/Swagger で文書化
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. テスト駆動開発（必須）
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+開発プロセスは TDD サイクルで実施します。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- テスト作成 → 承認 → テスト失敗 → 実装 の順序で実行
+- ユニットテスト、統合テスト、E2E テストすべてを実施
+- テストカバレッジは 80% 以上を維持
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### III. データベース設計の一貫性
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+SQLite スキーマ管理は厳格に行います。
 
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+- スキーマ変更は migration スクリプトで管理（手動 SQL は禁止）
+- リレーション整合性を必ず保証（外部キー制約）
+- インデックスは性能測定後に追加
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### IV. ログと可観測性
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+構造化ログで全ての重要処理を記録します。
+
+- ログレベルは DEBUG, INFO, WARNING, ERROR, CRITICAL を使い分け
+- タイムスタンプ、トレース ID、ユーザー情報を含める
+- エラーはスタックトレースと共に記録
+
+### V. セキュリティ・入力検証
+
+危険入力からの保護を必須とします。
+
+- すべてのリクエストボディは Pydantic モデルで検証
+- SQL インジェクション対策として SQL パラメータ化を強制
+- 認証・認可は JWT または API キーで実装
+
+## 技術スタック要件
+
+- **言語**: Python 3.10 以上
+- **フレームワーク**: FastAPI
+- **データストア**: SQLite（production ではデータベースマイグレーション対応）
+- **テスト**: pytest，pytest-cov
+- **API ドキュメント**: Swagger/OpenAPI
+
+## 開発ワークフロー
+
+1. **設計フェーズ**: API 仕様を OpenAPI で先行定義
+2. **テスト作成**: 仕様に基づきテストケースを作成
+3. **実装**: テストが失敗するまで実装開始
+4. **検証**: 全テスト合格と code review を経て main へマージ
+5. **リリース**: semantic versioning に従う
+
+## ガバナンス
+
+- 本憲法はすべての開発方針を統括する
+- 改定には全チームメンバーの同意（または合意形成会議）が必要
+- 例外は「例外追跡 issue」として GitHub に記録
+- すべての PR は本憲法への準拠を必須チェック項目とする
+- 詳細な開発ガイダンスは `docs/development.md` を参照
+
+**バージョン**: 1.0.0 | **制定日**: 2026-04-02 | **最終改定**: 2026-04-02
