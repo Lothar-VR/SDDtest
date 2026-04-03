@@ -18,11 +18,11 @@
 
 **目的**: プロジェクト初期化と基本構造構築
 
-- [ ] T001 実装計画に従ってプロジェクト構造を作成 (requirements.txt, src/, tests/, migrations/ ディレクトリ)
-- [ ] T002 [P] requirements.txt に FastAPI (≥0.100.0)、uvicorn、SQLAlchemy、Alembic、Pydantic、pytest、pytest-cov、python-dotenv を追加
-- [ ] T003 [P] 仮想環境を作成し、pip install -r requirements.txt でパッケージをインストール
-- [ ] T004 [P] .env.example テンプレートを作成 (DATABASE_URL, DEBUG, LOG_LEVEL)
-- [ ] T005 [P] Flake8 と Black を設定用のファイル (.flake8, pyproject.toml) で構成
+- [x] T001 実装計画に従ってプロジェクト構造を作成 (requirements.txt, src/, tests/, migrations/ ディレクトリ)
+- [x] T002 [P] requirements.txt に FastAPI (≥0.100.0)、uvicorn、SQLAlchemy、Alembic、Pydantic、pytest、pytest-cov、python-dotenv を追加
+- [x] T003 [P] 仮想環境を作成し、pip install -r requirements.txt でパッケージをインストール
+- [x] T004 [P] .env.example テンプレートを作成 (DATABASE_URL, DEBUG, LOG_LEVEL)
+- [x] T005 [P] Flake8 と Black を設定用のファイル (.flake8, pyproject.toml) で構成
 
 ---
 
@@ -32,16 +32,18 @@
 
 **⚠️ 重要**: このフェーズ完了まで、ユーザーストーリー実装は開始できません
 
-- [ ] T006 src/config.py で DATABASE_URL、DEBUG、LOG_LEVEL を読み込む環境設定を実装
-- [ ] T007 [P] src/database.py で SQLAlchemy エンジン、セッションメーカー、Base を定義
-- [ ] T008 [P] src/schemas/employee.py で EmployeeCreate (name, email, department)、EmployeeRead (全フィールド含む)、EmployeeUpdate (全フィールドオプション) の Pydantic スキーマを定義
-- [ ] T009 src/models/employee.py で SQLAlchemy ORM モデルを定義（id, name, email, department, is_deleted, created_at, updated_at、email 一意制約）
-- [ ] T010 migrations/alembic.ini と migrations/env.py を設定（SQLite、AutoMap 対応）
-- [ ] T011 migrations/versions/001_create_employees_table.py で初期マイグレーション (CREATE TABLE employees) を作成
-- [ ] T012 [P] src/main.py で FastAPI アプリケーションインスタンスを作成、Swagger/OpenAPI ドキュメント有効化
-- [ ] T013 [P] src/api/employees.py で APIRouter を定義し、main.py に include_router
-- [ ] T014 src/utils/logging_config.py で構造化ログ設定を実装 (DEBUG, INFO, WARNING, ERROR, CRITICAL レベル)
-- [ ] T015 [P] src/utils/error_handlers.py で共通エラーハンドリング (400, 404, 409, 500) と統一エラーレスポンス形式を実装
+✅ **フェーズ 2 完了** - ユーザーストーリー実装が開始可能
+
+- [x] T006 src/config.py で DATABASE_URL、DEBUG、LOG_LEVEL を読み込む環境設定を実装
+- [x] T007 [P] src/database.py で SQLAlchemy エンジン、セッションメーカー、Base を定義
+- [x] T008 [P] src/schemas/employee.py で EmployeeCreate (name, email, department)、EmployeeRead (全フィールド含む)、EmployeeUpdate (全フィールドオプション) の Pydantic スキーマを定義
+- [x] T009 src/models/employee.py で SQLAlchemy ORM モデルを定義（id, name, email, department, is_deleted, created_at, updated_at、email 一意制約）
+- [x] T010 migrations/alembic.ini と migrations/env.py を設定（SQLite、AutoMap 対応）
+- [x] T011 migrations/versions/001_create_employees_table.py で初期マイグレーション (CREATE TABLE employees) を作成
+- [x] T012 [P] src/main.py で FastAPI アプリケーションインスタンスを作成、Swagger/OpenAPI ドキュメント有効化
+- [x] T013 [P] src/api/employees.py で APIRouter を定義し、main.py に include_router
+- [x] T014 src/utils/logging_config.py で構造化ログ設定を実装 (DEBUG, INFO, WARNING, ERROR, CRITICAL レベル)
+- [x] T015 [P] src/utils/error_handlers.py で共通エラーハンドリング (400, 404, 409, 500) と統一エラーレスポンス形式を実装
 
 **チェックポイント**: 基盤準備完了 - ユーザーストーリー実装が開始可能
 
