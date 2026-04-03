@@ -41,6 +41,7 @@ record/
 | 4   | Agent Prompt 簡潔化          | DRY 原則適用、Constitution ベース統一            |
 | 5   | テンプレート修正             | 日本語文字化け修正                               |
 | 6   | 修正テンプレート適用         | spec.md・requirements.md 再構成                  |
+| 7   | 実装計画策定と並列戦略提示   | Phase 0-1 計画完成、研究/設計/契約成果物生成     |
 
 **アクセス**: [2026-04-02/ フォルダへ移動](./2026-04-02/)
 
@@ -77,7 +78,7 @@ record/
 4. ルート `INDEX.md` に日付エントリを追記（初回のみ）
 
 5. **テンプレート参照化**: `.specify/templates/record-template.md` を標準テンプレートとして指定
-6. **ファイル命名規則**: `./record/YYYY-MM-DD_<topic>-<mode>.md` パターンを統一
+5. **ファイル命名規則**: フォルダ内に保存 `./record/YYYY-MM-DD/<topic>.md`
 
 #### 次フェーズ
 
@@ -239,6 +240,73 @@ record/
 - `/speckit.plan` コマンドで実装設計フェーズに進行（修正テンプレート実務検証）
 - `/speckit.tasks` コマンドでタスク生成フェーズに進行
 - 並列開発タスク分割とチーム割当の実施
+
+---
+
+### Session 7: 実装計画策定と並列実行戦略提示
+
+**日時**: 2026-04-02 (第 7 Session)  
+**記録ファイル**: [2026-04-02/employee-crud-api-planning.md](./2026-04-02/employee-crud-api-planning.md)
+
+#### 実施内容
+
+- speckit.plan モード実行による実装計画フェーズ 0-1 完成
+- 技術スタック決定 (FastAPI、SQLAlchemy、Alembic、pytest)
+- 憲法準拠確認（5 つのコア原則すべて満たす）
+- 複数フィーチャーの並列実行戦略を明記・時間短縮率 28% を提示
+
+#### 生成ファイル
+
+| ファイル                                                               | 内容                                     | 行数 |
+| ---------------------------------------------------------------------- | ---------------------------------------- | ---- |
+| `specs/001-employee-crud-api-plan/plan.md` (更新)                      | 技術コンテキスト・憲法チェック・構造定義 | +50  |
+| `specs/001-employee-crud-api-plan/research.md`                         | Phase 0 技術調査 (7 研究項目)            | 230  |
+| `specs/001-employee-crud-api-plan/data-model.md`                       | Phase 1 ER 図・スキーマ設計              | 290  |
+| `specs/001-employee-crud-api-plan/contracts/employee-api.openapi.json` | OpenAPI 3.0.3 仕様                       | 480  |
+| `specs/001-employee-crud-api-plan/contracts/README.md`                 | API インターフェース詳細                 | 350  |
+| `specs/001-employee-crud-api-plan/quickstart.md`                       | 開発環境セットアップガイド               | 380  |
+| `.github/copilot-instructions.md` (更新)                               | Copilot context 更新                     | +20  |
+
+**合計**: 7 ファイル（新規 5、更新 2）
+
+#### 並列実行戦略
+
+```
+計画実行順序:
+  グループ A (1): plan.md 埋め込み [単一]
+  グループ B (2): research.md 生成 [単一、A完了後]
+  グループ C (3-5): data-model.md + contracts/ [並列2件、B完了後]
+  グループ D (4): quickstart.md [単一、C完了後]
+  グループ E (6): Copilot context 更新 [単一、D完了後]
+
+単純実行: 45分 → 並列実行: 32分
+時間短縮: 28% (13分削減)
+```
+
+#### 技術スタック確定
+
+| カテゴリ         | 選択           | 理由                                     |
+| ---------------- | -------------- | ---------------------------------------- |
+| 言語             | Python 3.10+   | 型安全性・開発効率                       |
+| フレームワーク   | FastAPI        | 自動ドキュメント・検証                   |
+| ORM              | SQLAlchemy 2.0 | SQL インジェクション対策・migration 対応 |
+| マイグレーション | Alembic        | 厳格な DB スキーマ管理                   |
+| 検証             | Pydantic v2    | Fastapi 統合・複雑ルール対応             |
+| テスト           | pytest         | TDD サイクル最適・カバレッジ測定         |
+
+#### 憲法準拠確認
+
+✅ **I. API-ファースト**: 6 エンドポイント OpenAPI 化  
+✅ **II. TDD 必須**: 80% 以上カバレッジ目標設定  
+✅ **III. DB 設計**: Alembic migration v001 確定  
+✅ **IV. ログ・可観測性**: 構造化ログ基本設計  
+✅ **V. セキュリティ**: Pydantic 検証・SQL パラメータ化
+
+#### 次フェーズ
+
+- `/speckit.tasks` で実装タスク分割（Phase 2）
+- `/speckit.taskstoissues` で GitHub Issues 作成
+- チームメンバーへの task 割当と並列开発開始
 
 ---
 
